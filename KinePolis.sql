@@ -54,6 +54,11 @@ Create table Login(
 
 );
 
+Select * from Login;
+
+
+Insert into Login(usuario, contrasena)
+	values('agonzalez2006', '123');
 
 Create table Usuario(
   idUsuario int auto_increment not null,
@@ -64,6 +69,19 @@ Create table Usuario(
   -- tarjeta_credito varchar(255) not null,
   primary key PK_idUsuario(idUsuario)
 );
+
+
+
+-- Factura
+Create table Factura(
+  idFactura int auto_increment not null,
+  fecha_emision date not null,
+  total_pago decimal(10, 2) not null,
+  usuario_id int not null,
+  primary key PK_idFactura(idFactura),
+  foreign key (usuario_id) references Usuario(idUsuario)
+);
+
 
 
 
@@ -136,7 +154,7 @@ Create table Promocion(
 
 
 -- Beto
-Create table FuncionEspecial(
+Create table FuncionEspecial (
   idFuncionEspecial int auto_increment not null,
   tipo_funcion varchar(255) not null,
   descripcion text not null,
@@ -265,15 +283,15 @@ Delimiter ;
 call sp_EditarUsuario(1, "Daniel", "Lopez", "danilopez@gmail.com", "123456");
 
 -- --------------------------------------Eliminar---------------------------------------------
-Delimiter $$
+/*Delimiter $$
 	Create procedure sp_EliminarUsuario(in sp_idUsuario int)
 		Begin
 			Delete from Usuario
 				where idUsuario = sp_idUsuario;
         End$$
-Delimiter ;
+Delimiter ;*/
 
-call sp_EliminarUsuario(5);
+-- call sp_EliminarUsuario(5);
 
 
 -- Pelicula
@@ -1141,6 +1159,6 @@ Delimiter ;
 		End$$
  Delimiter ;
 
-Call sp_EditarCartelera (1, now(), 1, 1);
+-- Call sp_EditarCartelera (1, now(), 1, 1);
 
 
