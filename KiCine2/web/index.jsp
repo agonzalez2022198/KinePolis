@@ -5,49 +5,55 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <title>Bienvenidos</title>
+<!-- Define que el documento esta bajo el estandar de HTML 5 -->
+<!doctype html>
+
+<!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
+<html lang="es">
+    
+    <head>      
+        <meta charset="utf-8">      
+        <title> Formulario de Acceso </title>           
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">       
+        <meta name="author" content="Videojuegos & Desarrollo">
+        <meta name="description" content="Muestra de un formulario de acceso en HTML y CSS">
+        <meta name="keywords" content="Formulario Acceso, Formulario de LogIn">
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+        
+        <!-- Link hacia el archivo de estilos css -->
+        <link rel="stylesheet" href="css/styleLogin.css">        
+        <style type="text/css">           
+        </style>       
+        <script type="text/javascript">        
+        </script> 
     </head>
     <body>
-        <div class="container mt-4 col-lg-4">
-            <div class="card col-sm-10">
-                <div class="card-body">
-                    <form class="form-sign" action="Validar" method="POST">
-                        <div class="form-group text-center">
-                            <h3>Login</h3>
-                            <img src="img/Usuario2.png" alt="70" width="130"/><br>
-                                    <label>Bienvenidos al Sistema</label>
-                        </div>
-                            <div class="form-group">
-                                <label>Usuario</label>
-                                <input type="text" name="txtUser" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Contraseña</label>
-                                <input type="password" name="txtPass" class="form-control">
-                            </div>
-                        <input type="submit" name="accion" value="Ingresar" class="btn btn-primary btn-block">
+        <div id="contenedor">
+            <div id="central">
+                <div id="login">
+                    <div class="titulo">
+                        Bienvenido
+                    </div>
+                    <form id="loginform" action="Validar" method="POST">
+                        <input id="usuario" type="text" name="txtUser" placeholder="Usuario" required>
+                        
+                        <input id="password" type="password" placeholder="Contrasena" name="txtPass" required>
+                        
+                        <input type="submit" name="accion" value="Ingresar" class="ntt" >
                     </form>
-                    
-
+                    <div class="pie-form">
+                        <a href="#">¿Perdiste tu contraseña?</a>
+                        <a href="Controlador?menu=usuario&accion=cuenta">¿No tienes Cuenta? Registrate</a>
+                    </div>
                 </div>
-
+                <div class="inferior">
+                    <a href="#">Volver</a>
+                </div>
             </div>
+        </div>
+        <Script ></Script>
             
-        </div>
-        <div>
-            <div class="container mt-4 col-lg-2">
-                <a href="AgregarUsuario.jsp">Crear Cuenta</a>
-            </div>
-        </div>
-        
-        
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     </body>
 </html>

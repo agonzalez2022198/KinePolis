@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Pelicula
-    Created on : jul 21, 2023, 12:30:00 p.m.
-    Author     : Windows 10
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
