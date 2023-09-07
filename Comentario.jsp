@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -23,10 +24,10 @@
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-2">
-                                    <input type="text" value="" name="txtUsuario_id" class="form-control" placeholder="Codigo">
+                                    <input type="text" value="${usuario.getIdUsuario()}" name="txtUsuario_id" class="form-control" placeholder="Codigo">
                                 </div>
                                 <div>
-                                    <buttom class="btn btn-outline-light" type="submit" name="accion" value="BuscarUsuario" href="Controlador?menu=Comentario&accion=BuscarUsuario">Buscar</buttom>
+                                    <buttom type="submit" name="accion" value="BuscarUsuario" href="Controlador?menu=Comentario&accion=BuscarUsuario" class="btn btn-outline-light">Buscar</buttom>
                                 </div>
                                 <div class="col-sm-8">
                                     <input type="text" value="" name="txtNombre" class="form-control">
@@ -59,6 +60,54 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex col-sm-6 ml-auto">
+                            <label>Serie No.</label>
+                            <input type="text" name="txtNumSerie" class="form-control"><br>
+                        </div>
+                        <table class="table table-hober">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Usuario</th>
+                                    <th>Opinion</th>
+                                    <th>Calificacion</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="list" items="${lista}">
+                                    <tr>
+                                        <td>${list.getItem()}</td>
+                                        <td>${list.getCodigoProducto()}</td>
+                                        <td>${list.getDescripcionProd()}</td>
+                                        <td>${list.getPrecio()}</td>
+                                        <td class="d-flex">
+                                            <a href="Controlador?menu=RegistrarVenta&accion=BuscarProducto&txtCodigoProducto=${list.getCodigoProducto()}" class="btn btn-warning">Editar</a>
+                                            <a href="Controlador?menu=RegistrarVenta&accion=Eliminar&codigoVenta=${list.getCodigoVenta()}" class="btn btn-danger"onclick="return confirm('Desea eliminar este registro')" style="margin-left: 10px">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer d-flex">
+                        <div class="col-sm-6">
+                            <a style="margin-left: 10px; border: none" class="btn btn-outline-success" href="Controlador?menu=Carrito&accion=Agregar" target="myFrame" value="Agregar carrito">
+                                Agregar Compra
+                            </a>
+                            <a href="Controlador?menu=RegistrarVenta&accion=Clear" id="clear" style="margin-left: 10px; border: none" class="btn btn-outline-danger"onclick="return confirm('Desea eliminar todos los registros?')" type="submit" name="accion" value="Cancelar">
+                                Cancelar
+                            </a>
+                        </div>
+                        <div class="col-sm-4 ml-auto">
+                            <input type="text" name="txtTotal" value="Q. ${totalPagar}" class="form-control">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
