@@ -5,72 +5,69 @@
  */
 package modeloDAO;
 
+import config.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import modelo.Usuario;
+
 /**
  *
  * @author Windows 10
  */
 public class UsuarioDAO {
     
+    Conexion cn = new Conexion();
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
     
-    private int idUsuario;
-    private String nombre;
-    private String apellido;
-    private String correo_electronico;
-    private String contrasena;
-
-    public UsuarioDAO() {
-    }
-
-    public UsuarioDAO(int idUsuario, String nombre, String apellido, String correo_electronico, String contrasena) {
-        this.idUsuario = idUsuario;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.correo_electronico = correo_electronico;
-        this.contrasena = contrasena;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getCorreo_electronico() {
-        return correo_electronico;
-    }
-
-    public void setCorreo_electronico(String correo_electronico) {
-        this.correo_electronico = correo_electronico;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
+    int resp;
     
     
+    public Usuario validar(String user, String password){
+        //Instanciar un objeto de tipo empleado.
+        Usuario usuario = new Usuario();
+        // Agregar una variable de tipo String para la consulta.
+        String sql = "select * from Usuario where correo_electronico = ? and contrasena = ?";
+        try{
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, user);
+            ps.setString(2, password);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                usuario.setIdUsuario(rs.getInt("idUsuario"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setApellido(rs.getString("apellido"));
+                usuario.setCorreo_electronico(rs.getString("correo_electronico"));
+                usuario.setContrasena(rs.getString("contrasena"));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return usuario; // Este sera el empleado que se encontro.
+    }
     
-    
+    public int agregar(Usuario user){
+        Usuario usuario = new Usuario();
+        
+        String sql = "insert into Usuario(nombre, apellido, correo_electronico,contrasena) values(?,?,?,?)";
+        
+        try{
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, user.getNombre());
+            ps.setString(2, user.getApellido());
+            ps.setString(3, user.getCorreo_electronico());
+            ps.setString(4, user.getContrasena());
+            ps.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println("No se agrega ni verga");
+        }
+        
+        return resp;
+    }
     
 }
