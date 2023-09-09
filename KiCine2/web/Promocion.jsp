@@ -34,6 +34,15 @@
             <br>
             <br>
             <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
            <div class="card col-sm-4">
             <div class="card-body">
                 <form action="Controlador?menu=Promocion" method="POST">
@@ -46,8 +55,16 @@
                         <input type="text" value="${promocion.getDescripcion()}" name="txtDescripcion" class="form-control">
                     </div>
                     <div>
-                        
+                        <label>Fecha</label>
+                        <input type="text" value="${promocion.getFechaValidez()}" name="txtFechaValidez" class="form-control">
                     </div>
+                    <div>
+                        <label>Id Pelicula</label>
+                        <input type="text" value="${promocion.getPelicula_id()}" name="txtPelicula_id" class="form-control">
+                    </div>
+                    <br>
+                    <input type="submit" name="accion" value="+" class="btn btn-warning" href="Controlador?menu=Promocion&accion=Agregar">
+                    <input type="submit" name="accion" value="Actualizar" class="btn btn-success" href="Controlador?menu=Promocion&accion=Actualizar">
                 </form>
             </div>
         </div>
