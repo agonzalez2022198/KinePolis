@@ -41,7 +41,7 @@
                 <div class="cont-menu">
                     <nav>
                         <a href="Controlador?menu=Pelicula" target="myFrame">Pelicula</a>
-                        <a href="Controlador?menu=Promocion" target="myFrame">Promocion</a>
+                        <a href="Controlador?menu=Promocion&accion=listar" target="myFrame">Promocion</a>
                         <a href="#">Servicios</a>
                         <a href="#">Suscribirse</a>
                         <a href="#">Facebook</a>

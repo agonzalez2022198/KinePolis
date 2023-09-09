@@ -81,5 +81,27 @@ public class PromocionDAO {
         }
         return listaPromocion;
     }
+    
+    public Promocion listarCodigoPromocion(int id){
+        Promocion pr = new Promocion();
+        String sql = "select * from Promocion where codigoPromocion = " + id;
+        try{
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                pr.setIdPromocion(rs.getInt(1));
+                pr.setNombrePromocion(rs.getString(2));
+                pr.setDescripcion(rs.getString(3));
+                pr.setFechasValidez(rs.getString(4));
+                pr.setPrecio(rs.getDouble(5));
+                pr.setPelicula_id(rs.getInt(6));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println("No se ha establecio la conexion");
+        }
+        return pr;
+    }
 }
 

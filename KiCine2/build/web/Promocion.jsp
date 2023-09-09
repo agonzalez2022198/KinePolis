@@ -26,7 +26,15 @@
                 <tbody>
                     <c:forEach var="promocion" items="${promocion}">
                         <tr>
-                            <td>${promocion.getIdPromocion}</td>
+                            <td>${promocion.getIdPromocion()}</td>
+                            <td>${promocion.getNombrePromocion()}</td>
+                            <td>${promocion.getDescripcion()}</td>
+                            <td>${promocion.getPrecio()}</td>
+                            <td>${promocion.getPelicula_id()}</td>
+                            <td>
+                                <a class="btn btn-outline-info" href="Controlador?menu=Promocion&accion=Editar&codigoPromocion=${promocion.getIdPromocion()}">Editar</a>
+                                <a class="btn btn-danger" onclick="return confirm('Deseas eliminar el registro?')" href="Controlador?menu=Promocion&accion=Eliminar&Codigo=${promocion.getIdPromocion()}">Eliminar</a>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
