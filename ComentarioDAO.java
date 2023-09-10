@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import modelo.Comentario;
+import modelo.Pelicula;
 import modelo.Usuario;
 
 /**
@@ -48,7 +49,7 @@ public class ComentarioDAO {
     }
     
     public int agregar(Comentario cm){
-        String sql = "insert into Comentario (usuario_id, pelicula_id, texto, puntuacion) values(?,?,?,?);";
+        String sql = "insert into Comentario (usuario_id, pelicula_id, texto) values(?,?,?);";
         System.out.println("hi");
         try{
             con = cn.Conexion();
@@ -84,9 +85,9 @@ public class ComentarioDAO {
         return cm;
     }
     
-    public Usuario listaUsuario(int codUsuario){
+    public Usuario listaUsuario(int id){
         Usuario u = new Usuario();
-        String sql = "select * from Usuario where idUsuario = " + codUsuario;
+        String sql = "select * from Usuario where idUsuario = " + id;
         try{
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -104,15 +105,39 @@ public class ComentarioDAO {
         return u;
     }
     
+    public Pelicula listaPelicula(int codPelicula){
+        Pelicula p = new Pelicula();
+        String sql = "select * from Pelicula where idPelicula = " + codPelicula;
+        try{
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                p.setIdPelicula(rs.getInt(1));
+                p.setTitulo(rs.getString(2));
+                p.setGenero(rs.getString(3));
+                p.setDirector(rs.getString(4));
+                p.setDuracion(rs.getInt(5));
+                p.setSinopsis(rs.getString(6));
+                p.setAno_lanzamiento(rs.getInt(7));
+                p.setCalificacion(rs.getString(8));
+                p.setIdioma(rs.getString(9));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return p;
+    }
+    
     public int actualizar(Comentario cm){
-        String sql = "update comentario set usuario_id = ?, pelicula_id = ?, texto = ?, where idComentario = ?";
+        String sql = "update comentario set usuario_id = ?, pelicula_id = ?, texto = ? where idComentario = ?";
         try{
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             ps.setInt(1, cm.getUsuario_id());
             ps.setInt(2, cm.getPelicula_id());
             ps.setString(3, cm.getTexto());
-            ps.setInt(5, cm.getIdComentario());
+            ps.setInt(4, cm.getIdComentario());
             ps.executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
