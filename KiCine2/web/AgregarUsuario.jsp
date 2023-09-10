@@ -46,6 +46,13 @@
                         
                         <input id="password" type="password" placeholder="Contrasena" name="contrasena" required>
                         
+                        <input
+                            type="file"
+                            name="foto"
+                            id="foto"
+                            class="formbold-form-input formbold-mb-3"
+                            />
+                        
                         <input type="submit" name="accion" value="agregar" class="ntt" >
                     </form>
                     

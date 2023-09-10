@@ -14,11 +14,11 @@
         <title>Menu Principal</title>
     </head>
     <body style="background-image: url('img/black-friday-2901748.png'); background-size: cover; background-repeat: no-repeat;">
-
-
-
+        
+        
+        <nav class="navbar navbar-expand-lg nvbar-light bg-dark">
         <div class="container-fluid position-relative nav-bar p-0">
-            <header class="header">
+            <!--<header class="header">-->
                 <div class="container">
                     <div class="btn-menu">
                         <label for="btn-menu">☰</label>
@@ -33,7 +33,7 @@
                         <a href="#">Contacto</a>
                     </nav>
                 </div>
-            </header>
+            <!--</header>-->
             <div class="capa"></div>
             <!--	--------------->
             <input type="checkbox" id="btn-menu">
@@ -41,6 +41,7 @@
                 <div class="cont-menu">
                     <nav>
                         <a href="Controlador?menu=Pelicula" target="myFrame">Pelicula</a>
+                        <a href="Controlador?menu=Estreno&accion=listar" target="myFrame">Estreno </a>
                         <a href="#">Servicios</a>
                         <a href="#">Suscribirse</a>
                         <a href="#">Facebook</a>
@@ -51,18 +52,18 @@
                 </div>
             </div>
         </div>
+        </nav> 
 
-
-
-
-
-
-
-
-        <div class= "m-4" style="height: 820px">
-            <iframe name="myFrame" style="height:100%; width: 100%; border: none"></iframe>
+        <div class="m-4" style="height: calc(100vh - 100px)">
+            <iframe name="myFrame" style="height: 100%; width: 100%; border: none;"></iframe>
         </div>
 
+
+
+
+
+
+  
 
 
 

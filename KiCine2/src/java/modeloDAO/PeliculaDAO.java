@@ -6,11 +6,17 @@
 package modeloDAO;
 
 import config.Conexion;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletResponse;
 import modelo.Pelicula;
 
 /**
@@ -41,9 +47,10 @@ public class PeliculaDAO {
                 pe.setDirector(rs.getString(4));
                 pe.setDuracion(rs.getInt(5));
                 pe.setSinopsis(rs.getString(6));
-                pe.setAno_lanzamiento(rs.getInt(7));
+                pe.setAno_lanzamiento(rs.getDate(7));
                 pe.setCalificacion(rs.getString(8));
                 pe.setIdioma(rs.getString(9));
+                pe.setFoto(rs.getBinaryStream(10));
                 listaPeli.add(pe);
             }
         }catch(Exception e){
@@ -51,10 +58,40 @@ public class PeliculaDAO {
         }
          return listaPeli;
     }
+
+    
+    public void listarImg(int id , HttpServletResponse response){
+        String sql = "select * from pelicula where idPelicula ="+id;
+        InputStream inputStream = null;
+        OutputStream outputStream = null;
+        BufferedInputStream bufferedInputStream = null;
+        BufferedOutputStream bufferedOutputStream = null;
+        response.setContentType("image/*");
+        
+        try{
+            outputStream = response.getOutputStream();
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                inputStream = rs.getBinaryStream("foto");
+            }
+            
+            bufferedInputStream = new BufferedInputStream(inputStream);
+            bufferedOutputStream = new BufferedOutputStream(outputStream);
+             int i = 0;
+             while((i = bufferedInputStream.read()) !=-1){
+                 bufferedOutputStream.write(i);
+             }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     
     //Metodo Agregar
     public int agregar(Pelicula pel){
-        String sql = "insert into Pelicula (titulo, genero, director, duracion, sinopsis, ano_lanzamiento, calificacion, idioma) values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into Pelicula (titulo, genero, director, duracion, sinopsis, lanzamiento, calificacion, idioma, foto) values (?,?,?,?,?,?,?,?,?)";
         
         try{
             con = cn.Conexion();
@@ -64,9 +101,10 @@ public class PeliculaDAO {
             ps.setString(3, pel.getDirector());
             ps.setInt(4, pel.getDuracion());
             ps.setString(5, pel.getSinopsis());
-            ps.setInt(6, pel.getAno_lanzamiento());
+            ps.setDate(6, new java.sql.Date(pel.getAno_lanzamiento().getTime()));
             ps.setString(7, pel.getCalificacion());
             ps.setString(8, pel.getIdioma());
+            ps.setBlob(9, pel.getFoto());
             ps.executeUpdate();
             
             
@@ -94,7 +132,7 @@ public class PeliculaDAO {
                 ps.setString(4, pel.getDirector());
                 ps.setInt(5, pel.getDuracion());
                 ps.setString(6, pel.getSinopsis());
-                ps.setInt(7, pel.getAno_lanzamiento());
+                ps.setDate(7, (java.sql.Date) pel.getAno_lanzamiento());
                 ps.setString(8, pel.getCalificacion());
                 ps.setString(9, pel.getIdioma());
 
@@ -130,7 +168,7 @@ public class PeliculaDAO {
             ps.setString(3, pel.getDirector());
             ps.setInt(4, pel.getDuracion());
             ps.setString(5, pel.getSinopsis());
-            ps.setInt(6, pel.getAno_lanzamiento());
+            ps.setDate(6, (java.sql.Date) pel.getAno_lanzamiento());
             ps.setString(7, pel.getCalificacion());
             ps.setString(8, pel.getIdioma());
             ps.setInt(9,pel.getIdPelicula());

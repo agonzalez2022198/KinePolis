@@ -6,9 +6,14 @@
 package modeloDAO;
 
 import config.Conexion;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.servlet.http.HttpServletResponse;
 import modelo.Usuario;
 
 /**
@@ -67,6 +72,82 @@ public class UsuarioDAO {
             System.out.println("No se agrega ni verga");
         }
         
+        return resp;
+    }
+    
+    
+    public Usuario listarPorCodigo(int id){
+        //Instanciar el objeto a ddevolver
+        Usuario user = new Usuario();
+        String sql = "Select * from usuario where idUsuario = "+id;
+        try{
+            con = cn.Conexion();
+            ps= con.prepareStatement(sql);
+            rs= ps.executeQuery();
+            while(rs.next()){
+                user.setIdUsuario(rs.getInt(1));
+                user.setNombre(rs.getString(2));
+                user.setApellido(rs.getString(3));
+                user.setCorreo_electronico(rs.getString(4));
+                user.setContrasena(rs.getString(5));
+                user.setFoto(rs.getBinaryStream(6));
+                
+            }
+        
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println("No hay conexion de usuario");
+        }
+        return user;
+    }
+    
+    
+    public void listarImg(int id , HttpServletResponse response){
+        String sql = "select * from usuario where idUsuario ="+id;
+        InputStream inputStream = null;
+        OutputStream outputStream = null;
+        BufferedInputStream bufferedInputStream = null;
+        BufferedOutputStream bufferedOutputStream = null;
+        response.setContentType("image/*");
+        
+        try{
+            outputStream = response.getOutputStream();
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                inputStream = rs.getBinaryStream("foto");
+            }
+            
+            bufferedInputStream = new BufferedInputStream(inputStream);
+            bufferedOutputStream = new BufferedOutputStream(outputStream);
+             int i = 0;
+             while((i = bufferedInputStream.read()) !=-1){
+                 bufferedOutputStream.write(i);
+             }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    
+    public int actualizar (Usuario user){
+        String sql = "update usuario set nombre = ?, apellido = ?, correo_electronico = ?, contrasena = ?, foto = ? where idUsuario = ?";
+        try{
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            
+            ps.setString(1, user.getNombre());
+            ps.setString(2, user.getApellido());
+            ps.setString(3, user.getCorreo_electronico());
+            ps.setString(4, user.getContrasena());
+            ps.setBlob(5, user.getFoto());
+            ps.setInt(6, user.getIdUsuario());
+            ps.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return resp;
     }
     

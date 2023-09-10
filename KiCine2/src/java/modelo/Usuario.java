@@ -1,6 +1,8 @@
 
 package modelo;
 
+import java.io.InputStream;
+
 
 public class Usuario {
     private int idUsuario;
@@ -8,16 +10,22 @@ public class Usuario {
     private String apellido;
     private String correo_electronico;
     private String contrasena;
+    
+    private InputStream foto;
+    
+    private String fotoURL;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, String correo_electronico, String contrasena) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo_electronico, String contrasena, InputStream foto, String fotoURL) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo_electronico = correo_electronico;
         this.contrasena = contrasena;
+        this.foto = foto;
+        this.fotoURL = fotoURL;
     }
 
     public int getIdUsuario() {
@@ -59,4 +67,24 @@ public class Usuario {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
+
+    public InputStream getFoto() {
+        return foto;
+    }
+
+    public void setFoto(InputStream foto) {
+        this.foto = foto;
+    }
+
+    public String getFotoURL() {
+        return fotoURL;
+    }
+
+    public void setFotoURL(String fotoURL) {
+        this.fotoURL = fotoURL;
+    }
+
+    
+    
+    
 }

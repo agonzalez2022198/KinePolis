@@ -3,20 +3,23 @@ package modelo;
 
 import java.util.Date;
 
+
+
+
 public class Estreno {
     int idEstreno;
     int pelicula_id;
+    String descripcionEstreno;
     Date fecha_estreno;
-    int promocion_id;
 
     public Estreno() {
     }
 
-    public Estreno(int idEstreno, int pelicula_id, Date fecha_estreno, int promocion_id) {
+    public Estreno(int idEstreno, int pelicula_id, String descripcionEstreno, Date fecha_estreno) {
         this.idEstreno = idEstreno;
         this.pelicula_id = pelicula_id;
+        this.descripcionEstreno = descripcionEstreno;
         this.fecha_estreno = fecha_estreno;
-        this.promocion_id = promocion_id;
     }
 
     public int getIdEstreno() {
@@ -35,6 +38,14 @@ public class Estreno {
         this.pelicula_id = pelicula_id;
     }
 
+    public String getDescripcionEstreno() {
+        return descripcionEstreno;
+    }
+
+    public void setDescripcionEstreno(String descripcionEstreno) {
+        this.descripcionEstreno = descripcionEstreno;
+    }
+
     public Date getFecha_estreno() {
         return fecha_estreno;
     }
@@ -43,13 +54,6 @@ public class Estreno {
         this.fecha_estreno = fecha_estreno;
     }
 
-    public int getPromocion_id() {
-        return promocion_id;
-    }
-
-    public void setPromocion_id(int promocion_id) {
-        this.promocion_id = promocion_id;
-    }
     
     
     

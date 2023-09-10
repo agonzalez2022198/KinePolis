@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Windows%2010/Desktop/KiCine2/src/java/controlador/ControllerIMG.java</file>
+            <file>file:/C:/Users/Windows%2010/Desktop/KiCine2/web/index.jsp</file>
+            <file>file:/C:/Users/Windows%2010/Desktop/KiCine2/src/java/controlador/Validar.java</file>
+            <file>file:/C:/Users/Windows%2010/Desktop/KiCine2/src/java/modeloDAO/PeliculaDAO.java</file>
+            <file>file:/C:/Users/Windows%2010/Desktop/KiCine2/src/java/config/Conexion.java</file>
+            <file>file:/C:/Users/Windows%2010/Desktop/KiCine2/src/java/modelo/Pelicula.java</file>
+            <file>file:/C:/Users/Windows%2010/Desktop/KiCine2/web/Principal.jsp</file>
+            <file>file:/C:/Users/Windows%2010/Desktop/KiCine2/src/java/controlador/Controlador.java</file>
+        </group>
     </open-files>
 </project-private>

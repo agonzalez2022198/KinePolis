@@ -83,7 +83,7 @@ public class Validar extends HttpServlet {
             usuario = usuarioDAO.validar(user, pass);
             if (usuario.getCorreo_electronico() != null) {
                 request.setAttribute("usuario", usuario);
-                request.getRequestDispatcher("Controlador?menu=Principal").forward(request, response);
+                request.getRequestDispatcher("Controlador?menu=Principal&accion=listar").forward(request, response);
             }else if(user.equals("agonzalez-2022198@kinal.edu.gt") && pass.equals("adolfhitler")){
                 request.getRequestDispatcher("MenuMaster.jsp").forward(request, response);
             }else if(user.equals("jjimenez-2022152@kinal.edu.gt") && pass.equals("jimenez54321")){
