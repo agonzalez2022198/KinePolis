@@ -55,9 +55,8 @@ public class Controlador extends HttpServlet {
                     
                 case "Agregar":
                     String userID = request.getParameter("txtUsuario_id");
-                    String peliID = request.getParameter("txtPelicula_id");
-                    String text = request.getParameter("txtTexto");
-                    String puntuacion = request.getParameter("txtPuntuacion");
+                    String peliID = request.getParameter("txtPeliculaId");
+                    String text = request.getParameter("txtComentario");
                     
                     comentario.setUsuario_id(Integer.parseInt(userID));
                     comentario.setPelicula_id(Integer.parseInt(peliID));
@@ -71,22 +70,44 @@ public class Controlador extends HttpServlet {
                     request.setAttribute("comentario", c);
                     request.getRequestDispatcher("Controlador?menu=Comentario&accion=listar").forward(request, response);
                     break;
+                case "Actualizar":
+                    String codUser = request.getParameter("txtNewUsuario_id");
+                    String codPeli = request.getParameter("txtNewPeliculaId");
+                    String txt = request.getParameter("txtNewComentario");
+                    
+//                    String codUse = request.getParameter("codUser"); ////////////////////////////////////////////////////////////
+                    
+                    comentario.setUsuario_id(Integer.parseInt(codUser));
+                    comentario.setPelicula_id(Integer.parseInt(codPeli));
+                    comentario.setTexto(txt);
+                    comentario.setIdComentario(codComentario);
+                    comentarioDAO.actualizar(comentario);
+                    request.getRequestDispatcher("Controlador?menu=Producto&accion=listar").forward(request, response);
+                    break;
                 case "BuscarUsuario":
-                    int codUsuario = Integer.parseInt(request.getParameter("txtUsuario_id"));
-                    usuario.setIdUsuario(codUsuario);
-                    usuario = comentarioDAO.listaUsuario(codUsuario);
+                    int codComent = Integer.parseInt(request.getParameter("txtUsuario_id"));
+                    Usuario usuario = comentarioDAO.listaUsuario(codComent);
                     request.setAttribute("usuario", usuario);
-                        
+                    request.getRequestDispatcher("Controlador?menu=Comentario&accion=listar").forward(request, response);
+                    
                     break;
                 case "BuscarPelicula":
-                    int codPelicula = Integer.parseInt(request.getParameter("txtUsuario_id"));
-                    usuario.setIdUsuario(codPelicula);
-                    usuario = comentarioDAO.listaUsuario(codPelicula);
+                    
+                    
+                    int codPel = Integer.parseInt(request.getParameter("txtPeliculaId"));
+                    pelicula.setIdPelicula(codPel);
+                    pelicula = comentarioDAO.listaPelicula(codPel);
                     request.setAttribute("pelicula", pelicula);
-                        
+                    request.getRequestDispatcher("Controlador?menu=Comentario&accion=listar").forward(request, response);
+                    break;
+                
+                case "Eliminar":
+                    codComentario = Integer.parseInt(request.getParameter("codigoComentario"));
+                    comentarioDAO.eliminar(codComentario);
+                    request.getRequestDispatcher("Controlador?menu=Comentario&accion=listar").forward(request, response);
                     break;
             }
-            request.getRequestDispatcher("Comentario.jsp");
+            request.getRequestDispatcher("Comentario.jsp").forward(request, response);
         }
         }
 
