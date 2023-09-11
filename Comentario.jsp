@@ -1,7 +1,7 @@
 <%-- 
     Document   : Comentario
     Created on : 21/07/2023, 11:06:39 PM
-    Author     : Admin
+    Author     : hgomez-2022207
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -11,36 +11,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
         <title>Comentario</title>
         <style>
-            body{
-                background-color: black;
-                text: FFFFF;
-            }
-            div{
-                background-color: black;
-                text: FFFFF;
-            }
-            input-text{
-                background-color: black;
-            }
-            th{
-                color: white;
-            }
-            td{
-                color: white;
-            }
-            label{
-                color: white;
-            }
+
         </style>
     </head>
-    <body bgcolor="black">
+    <body style="background-image: url('img/fondoAdm.png'); background-size: cover; background-repeat: no-repeat;">
         <div class="d-flex">
             <div class="col-sm-15">
                 <div class="card">
                     <form action="Controlador?menu=Comentario" method="POST">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color: #F8F8F8; border: none; border-radius: 3%">
                             <div>
                                 <label>ID de Usuario:</label>
                             </div>
@@ -111,10 +93,8 @@
                             <div class="form-group">
                                 <div>
                                     <button type="submit" name="accion" value="Actualizar" class="btn btn-outline-warning" href="Controlador?menu=Comentario&accion=Actualizar">Actualizar</button>
-                            </div> <!-- -->
-                            
-                            
-                        </div>
+                                </div> <!-- -->
+                            </div>
                             
                         
                         </div>
@@ -123,7 +103,10 @@
                 </div>
             </div>
             <div class="col-sm-7">
-                <div class="card">
+                
+                
+                
+                <div class="card" style="background-color: #F8F8F8; border: none; border-radius: 3%">
                     <div class="card-body">
                         <table class="table table-hober">
                             <thead>
