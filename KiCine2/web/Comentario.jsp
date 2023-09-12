@@ -14,10 +14,22 @@
         <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
         <title>Comentario</title>
         <style>
+            .header {
+                background-color: #333;
+                color: #fff;
+                padding: 20px 0;
+                text-align: center;
+            }
 
+            .header h1 {
+                font-size: 36px;
+            }
         </style>
     </head>
     <body style="background-image: url('img/fondoAdm.png'); background-size: cover; background-repeat: no-repeat;">
+        <header class="header">
+            <h1>Comentario</h1>
+        </header>
         <div class="d-flex">
             <div class="col-sm-15">
                 <div class="card">
