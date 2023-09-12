@@ -58,6 +58,11 @@ public class Promocion {
     public void setCodigo_promocion(String codigo_promocion) {
         this.codigo_promocion = codigo_promocion;
     }
+
+    @Override
+    public String toString() {
+        return "Promocion{" + "idPromocion=" + idPromocion + ", nombre_promopcion=" + nombre_promopcion + ", descripcion=" + descripcion + ", fechas_validez=" + fechas_validez + ", codigo_promocion=" + codigo_promocion + '}';
+    }
  
  
 }
