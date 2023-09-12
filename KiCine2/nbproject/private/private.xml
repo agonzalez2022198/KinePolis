@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/warty/Documents/NetBeansProjects/KiCine2/web/Promocion.jsp</file>
-            <file>file:/C:/Users/warty/Documents/NetBeansProjects/KiCine2/src/java/controlador/Validar.java</file>
-            <file>file:/C:/Users/warty/Documents/NetBeansProjects/KiCine2/web/Principal.jsp</file>
-            <file>file:/C:/Users/warty/Documents/NetBeansProjects/KiCine2/src/java/modelo/Promocion.java</file>
-            <file>file:/C:/Users/warty/Documents/NetBeansProjects/KiCine2/web/MenuMaster.jsp</file>
-            <file>file:/C:/Users/warty/Documents/NetBeansProjects/KiCine2/src/java/controlador/Controlador.java</file>
+            <file>file:/C:/Users/warty/Desktop/KiCine2/src/java/modelo/Promocion.java</file>
+            <file>file:/C:/Users/warty/Desktop/KiCine2/src/java/modeloDAO/PromocionDAO.java</file>
+            <file>file:/C:/Users/warty/Desktop/KiCine2/web/Promocion.jsp</file>
+            <file>file:/C:/Users/warty/Desktop/KiCine2/src/java/config/Conexion.java</file>
+            <file>file:/C:/Users/warty/Desktop/KiCine2/web/Estreno.jsp</file>
+            <file>file:/C:/Users/warty/Desktop/KiCine2/src/java/modeloDAO/EstrenoDAO.java</file>
+            <file>file:/C:/Users/warty/Desktop/KiCine2/src/java/controlador/Validar.java</file>
+            <file>file:/C:/Users/warty/Desktop/KiCine2/web/MenuMaster.jsp</file>
+            <file>file:/C:/Users/warty/Desktop/KiCine2/src/java/controlador/Controlador.java</file>
         </group>
     </open-files>
 </project-private>

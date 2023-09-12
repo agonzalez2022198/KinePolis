@@ -1,9 +1,17 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
+
 * {
     padding: 0;
     margin: 0;
-    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
+    
+    
 }
 
+.body{
+    
+}
 .cabecera {
     top: 0;
     width: 100%;
@@ -18,6 +26,25 @@
     height: 90px;
     margin: 0 auto;
     display: flex;
+}
+.anchocabecera .menu{
+    float: right;
+    line-height: 100px;
+}
+.anchocabecera .menu a{
+    display: inline-block;
+    padding: 15px;
+    line-height: normal;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    font-size: 15px;
+    margin-right: 5px;
+}
+.anchocabecera .menu a:hover{
+    border-bottom: 2px solid #c7c7c7;
+    padding-bottom: 5px;
 }
 
 .imagen-principal {

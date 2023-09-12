@@ -88,6 +88,8 @@ public class Validar extends HttpServlet {
                 request.getRequestDispatcher("MenuMaster.jsp").forward(request, response);
             }else if(user.equals("jjimenez-2022152@kinal.edu.gt") && pass.equals("jimenez54321")){
                 request.getRequestDispatcher("MenuMaster.jsp").forward(request, response);
+            }else if(user.equals("usuario") && pass.equals("1234")){
+                request.getRequestDispatcher("MenuMaster.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }

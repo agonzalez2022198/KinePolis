@@ -48,10 +48,10 @@
                         
                         <input type="submit" name="accion" value="agregar" class="ntt" >
                     </form>
-                    
-                </div>
+                    </div>
+                
                 <div class="inferior">
-                    <a href="#">Volver</a>
+                    <a href="Controlador?menu=InicioSesion">Volver</a>
                 </div>
             </div>
         </div>

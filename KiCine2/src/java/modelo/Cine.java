@@ -11,19 +11,15 @@ public class Cine {
     private String nombre;
     private String ubicacion;
     private String telefono;
-    private String pagina_web;
-    private String horarios_apertura;
 
     public Cine() {
     }
 
-    public Cine(int idCine, String nombre, String ubicacion, String telefono, String pagina_web, String horarios_apertura) {
+    public Cine(int idCine, String nombre, String ubicacion, String telefono) {
         this.idCine = idCine;
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.telefono = telefono;
-        this.pagina_web = pagina_web;
-        this.horarios_apertura = horarios_apertura;
     }
 
     public int getIdCine() {
@@ -57,22 +53,5 @@ public class Cine {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
-    public String getPagina_web() {
-        return pagina_web;
-    }
-
-    public void setPagina_web(String pagina_web) {
-        this.pagina_web = pagina_web;
-    }
-
-    public String getHorarios_apertura() {
-        return horarios_apertura;
-    }
-
-    public void setHorarios_apertura(String horarios_apertura) {
-        this.horarios_apertura = horarios_apertura;
-    }
-    
     
 }

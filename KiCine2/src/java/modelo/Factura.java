@@ -1,30 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
-import java.util.Date;
+import java.sql.Date;
 
-/**
- *
- * @author Windows 10
- */
 public class Factura {
-    private int idFactura;
-    private Date fecha_emision;
-    private double total_pago;
-    private int usuario_id;
+
+    int idFactura;
+    Date fechaEmision;
+    int usuario_id;
+    int cine_id;
+    int entrada_id;
+    double subTotal;
 
     public Factura() {
     }
 
-    public Factura(int idFactura, Date fecha_emision, double total_pago, int usuario_id) {
+    public Factura(int idFactura, Date fechaEmision, int usuario_id, int cine_id, int entrada_id, double subTotal) {
         this.idFactura = idFactura;
-        this.fecha_emision = fecha_emision;
-        this.total_pago = total_pago;
+        this.fechaEmision = fechaEmision;
         this.usuario_id = usuario_id;
+        this.cine_id = cine_id;
+        this.entrada_id = entrada_id;
+        this.subTotal = subTotal;
     }
 
     public int getIdFactura() {
@@ -35,20 +31,12 @@ public class Factura {
         this.idFactura = idFactura;
     }
 
-    public Date getFecha_emision() {
-        return fecha_emision;
+    public Date getFechaEmision() {
+        return fechaEmision;
     }
 
-    public void setFecha_emision(Date fecha_emision) {
-        this.fecha_emision = fecha_emision;
-    }
-
-    public double getTotal_pago() {
-        return total_pago;
-    }
-
-    public void setTotal_pago(double total_pago) {
-        this.total_pago = total_pago;
+    public void setFechaEmision(Date fechaEmision) {
+        this.fechaEmision = fechaEmision;
     }
 
     public int getUsuario_id() {
@@ -58,7 +46,29 @@ public class Factura {
     public void setUsuario_id(int usuario_id) {
         this.usuario_id = usuario_id;
     }
-    
-    
-    
+
+    public int getCine_id() {
+        return cine_id;
+    }
+
+    public void setCine_id(int cine_id) {
+        this.cine_id = cine_id;
+    }
+
+    public int getEntrada_id() {
+        return entrada_id;
+    }
+
+    public void setEntrada_id(int entrada_id) {
+        this.entrada_id = entrada_id;
+    }
+
+    public double getSubTotal() {
+        return subTotal;
+    }
+
+    public void setSubTotal(double subTotal) {
+        this.subTotal = subTotal;
+    }
+
 }

@@ -1,22 +1,17 @@
-
 package modelo;
 
 import java.util.Date;
 
+
+
+
 public class Estreno {
     int idEstreno;
     int pelicula_id;
-    Date fecha_estreno;
-    int promocion_id;
+    String descripcionEstreno;
+    Date fechaEstreno;
 
     public Estreno() {
-    }
-
-    public Estreno(int idEstreno, int pelicula_id, Date fecha_estreno, int promocion_id) {
-        this.idEstreno = idEstreno;
-        this.pelicula_id = pelicula_id;
-        this.fecha_estreno = fecha_estreno;
-        this.promocion_id = promocion_id;
     }
 
     public int getIdEstreno() {
@@ -35,22 +30,20 @@ public class Estreno {
         this.pelicula_id = pelicula_id;
     }
 
-    public Date getFecha_estreno() {
-        return fecha_estreno;
+    public String getDescripcionEstreno() {
+        return descripcionEstreno;
     }
 
-    public void setFecha_estreno(Date fecha_estreno) {
-        this.fecha_estreno = fecha_estreno;
+    public void setDescripcionEstreno(String descripcionEstreno) {
+        this.descripcionEstreno = descripcionEstreno;
     }
 
-    public int getPromocion_id() {
-        return promocion_id;
+    public Date getFechaEstreno() {
+        return fechaEstreno;
     }
 
-    public void setPromocion_id(int promocion_id) {
-        this.promocion_id = promocion_id;
+    public void setFechaEstreno(Date fechaEstreno) {
+        this.fechaEstreno = fechaEstreno;
     }
-    
-    
-    
+
 }

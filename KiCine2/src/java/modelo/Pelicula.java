@@ -5,6 +5,9 @@
  */
 package modelo;
 
+import java.io.InputStream;
+import java.util.Date;
+
 /**
  *
  * @author Windows 10
@@ -17,14 +20,17 @@ public class Pelicula {
     private String director;
     private int duracion;
     private String sinopsis;
-    private int ano_lanzamiento;
+    private Date ano_lanzamiento;
     private String calificacion;
     private String idioma;
+    private InputStream foto;
+    
+    private String fotoURL;
 
     public Pelicula() {
     }
 
-    public Pelicula(int idPelicula, String titulo, String genero, String director, int duracion, String sinopsis, int ano_lanzamiento, String calificacion, String idioma) {
+    public Pelicula(int idPelicula, String titulo, String genero, String director, int duracion, String sinopsis, Date ano_lanzamiento, String calificacion, String idioma, InputStream foto, String fotoURL) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
         this.genero = genero;
@@ -34,6 +40,8 @@ public class Pelicula {
         this.ano_lanzamiento = ano_lanzamiento;
         this.calificacion = calificacion;
         this.idioma = idioma;
+        this.foto = foto;
+        this.fotoURL = fotoURL;
     }
 
     public int getIdPelicula() {
@@ -84,11 +92,11 @@ public class Pelicula {
         this.sinopsis = sinopsis;
     }
 
-    public int getAno_lanzamiento() {
+    public Date getAno_lanzamiento() {
         return ano_lanzamiento;
     }
 
-    public void setAno_lanzamiento(int ano_lanzamiento) {
+    public void setAno_lanzamiento(Date ano_lanzamiento) {
         this.ano_lanzamiento = ano_lanzamiento;
     }
 
@@ -107,8 +115,21 @@ public class Pelicula {
     public void setIdioma(String idioma) {
         this.idioma = idioma;
     }
-    
-    
-    
-    
+
+    public InputStream getFoto() {
+        return foto;
+    }
+
+    public void setFoto(InputStream foto) {
+        this.foto = foto;
+    }
+
+    public String getFotoURL() {
+        return fotoURL;
+    }
+
+    public void setFotoURL(String fotoURL) {
+        this.fotoURL = fotoURL;
+    }
+  
 }

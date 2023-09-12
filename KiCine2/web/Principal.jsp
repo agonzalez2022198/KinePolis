@@ -25,9 +25,9 @@
         <div class="cabecera">
             <div class="anchocabecera">
                 <div class="imagen-principal">
-                    <img class="logo" src="img/logo.png">
+                    <img class="logo" src="img/logoUser.png">
                 </div>
-                <div class="buscador">
+<!--                <div class="buscador">
                     <select>
                         <option>Selecciona tu cine</option>
                         <option>Miraflores</option>
@@ -35,10 +35,13 @@
                         <option>Naranjo mall</option>
                     </select>
                     <input type="button" value="Ver cartelera" onclick="beforeImage()">
-                </div>
-                <div class="contacto">
+                </div>-->
+<!--                <div class="contacto">
                     <input type="button" value="Contacto">
-                </div>
+                </div>-->
+                <nav class="menu">
+                        <a href="Controlador?menu=InicioSesion">Cerrar Sesión</a>
+                </nav>
             </div>
         </div>
         <nav class="navegador">
@@ -51,16 +54,13 @@
                         <a href="">Cartelera</a>
                     </li>
                     <li>
-                        <a href="">Estrenos</a>
+                        <a href="Controlador?menu=EstrenoUsuario" target="myFrame">Estrenos</a>
                     </li>
                     <li>
-                        <a href="">Próximos estrenos</a>
+                        <a href="">Cines</a>
                     </li>
                     <li>
-                        <a href="">Preventa</a>
-                    </li>
-                    <li>
-                        <a href="">Galería</a>
+                        <a href="">Comprar Tickets</a>
                     </li>
                 </ul>
                 <ul>
@@ -70,7 +70,7 @@
         </nav>
         <div class="imagen-slider">
             <div id="banners">
-                <img class="imagenes-banners" src="img/banners/angrybirds.png">
+                <img class="imagenes-banners" src="img/banners/fnas.png">
 
 
             </div>
@@ -81,7 +81,7 @@
             <script>
                 var slider_content = document.getElementById('banners');
 
-                var image = ["angrybirds", "comosifueralaprimeravez", "habiaunavezenhollywood", "historiasmiedo", "it", "angrybirds"];
+                var image = ["comosifueralaprimeravez", "habiaunavezenhollywood", "historiasmiedo", "it", "angrybirds","fnas"];
 
                 var i = image.length;
 
@@ -148,6 +148,7 @@
                     <p>Duración: 120 min</p>
                     <p>Genero: Animada </p>
                 </div>
+                
             </div>
         </div>
 
@@ -178,7 +179,7 @@
 
                 </div>
             </div>
-
+            
         </div>
         <script>
             setInterval('nextImage()', 3000);

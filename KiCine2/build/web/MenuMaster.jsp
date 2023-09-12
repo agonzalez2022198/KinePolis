@@ -13,27 +13,25 @@
         <link rel="stylesheet" href="css/menuDespegable.css">
         <title>Menu Principal</title>
     </head>
-    <body style="background-image: url('img/black-friday-2901748.png'); background-size: cover; background-repeat: no-repeat;">
-
-
-
+    <body >
+        
+        
+        <nav class="navbar navbar-expand-lg nvbar-light " style="background-color: #242424">
         <div class="container-fluid position-relative nav-bar p-0">
-            <header class="header">
+            <!--<header class="header">-->
                 <div class="container">
                     <div class="btn-menu">
                         <label for="btn-menu">☰</label>
                     </div>
                     <div class="logo">
-                        <h1>Logotipo</h1>
+                        <img style=" margin: 10px; height: 70px;" src="img/logoAdmin.png">
                     </div>
                     <nav class="menu">
-                        <a href="#">Inicio</a>
-                        <a href="#">Nosotros</a>
-                        <a href="#">Blog</a>
-                        <a href="#">Contacto</a>
+                        <a href="MenuMaster.jsp">Inicio</a>
+                        <a href="Controlador?menu=InicioSesion">Cerrar Sesión</a>
                     </nav>
                 </div>
-            </header>
+            <!--</header>-->
             <div class="capa"></div>
             <!--	--------------->
             <input type="checkbox" id="btn-menu">
@@ -41,8 +39,14 @@
                 <div class="cont-menu">
                     <nav>
                         <a href="Controlador?menu=Pelicula" target="myFrame">Pelicula</a>
-                        <a href="Controlador?menu=Promocion&accion=listar" target="myFrame">Promocion</a>
-                        <a href="#">Servicios</a>
+                        <a href="Controlador?menu=Estreno&accion=listar" target="myFrame">Estreno </a>
+                        <a href="Controlador?menu=PreventaAdmin&accion=listar" target="myFrame">PreVenta</a>
+                        <a href="Controlador?menu=Cine&accion=listar" target="myFrame">Cine</a>
+                        <a href="Controlador?menu=Entrada&accion=listar" target="myFrame">Entrada</a>
+                        <a href="Controlador?menu=Comentario&accion=listar" target="myFrame">Comentario</a>
+                        <a href="Controlador?menu=Factura&accion=listar" target="myFrame">Factura</a>
+                        <a href="Controlador?menu=Promocion&accion=listar" target="myFrame">Promoción</a>
+                        <a href="Controlador?menu=RegistrarVenta&accion=listar" target="myFrame">Sala Cine</a>
                         <a href="#">Suscribirse</a>
                         <a href="#">Facebook</a>
                         <a href="#">Youtube</a>
@@ -52,18 +56,20 @@
                 </div>
             </div>
         </div>
+        </nav> 
 
-
-
-
-
-
-
-
-        <div class= "m-4" style="height: 820px">
-            <iframe name="myFrame" style="height:100%; width: 100%; border: none"></iframe>
+        <div class="m-4" style="height: calc(100vh - 100px)">
+            <iframe name="myFrame" style="height: 100%; width: 100%; border: none;">
+                
+            </iframe>
         </div>
 
+
+
+
+
+
+  
 
 
 

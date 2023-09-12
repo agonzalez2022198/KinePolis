@@ -13,8 +13,11 @@ Create table Usuario(
   apellido varchar(255) not null,
   correo_electronico varchar(255) not null,
   contrasena varchar(255) not null,
+  foto LONGBLOB,
   primary key PK_idUsuario(idUsuario)
 );
+
+select *from usuario;
 
 
 insert into Usuario(nombre, apellido, correo_electronico, contrasena)
@@ -32,12 +35,16 @@ Create table Pelicula(
   lanzamiento date not null,
   calificacion varchar(50) not null,
   idioma varchar(50) not null,
+  foto LONGBLOB,
   primary key PK_idPelicula(idPelicula)
 );
 
+select * from pelicula;
+-- select * from Entrada;
+
 
 insert into Pelicula (titulo, genero, director, duracion, sinopsis, lanzamiento, calificacion, idioma)
-	values ("El patito feo", "comedia", "Guillermo del toro", 180, "Un pato  es brutalmente asesinado a manos de un ganzo", "2018-05-20", "4.3/5", "Polaco" );
+	 values ("El patito feo", "comedia", "Guillermo del toro", 180, "Un pato  es brutalmente asesinado a manos de un ganzo", "2018-05-20", "4.3/5", "Polaco" );
 
 select * from Pelicula;
 -- Las ubicaciones y cine que vamos a tener. Podemos registrarlos de una vez. Crud completo igual
@@ -123,6 +130,23 @@ Create table Promocion(
 insert Promocion (nombrePromocion, descripcion, fechasValidez, precio, pelicula_id)
 	values("2x1 Navidad", "Obten esta promocion en la compra de una entrada para la pelicula: El patito feo", "Miercoles 20 de Dicimebre", 30.00, 1);
 select * from Promocion;
+
+
+SELECT
+    Pr.descripcion,
+    Pr.fechasValidez,
+    Pr.precio,
+    P.titulo,
+    P.foto
+FROM
+    Pelicula AS P
+INNER JOIN
+    Promocion AS Pr
+ON
+    P.idPelicula = Pr.pelicula_id;
+
+
+
 -- Beto
 Create table FuncionEspecial (
   idFuncionEspecial int auto_increment not null,
@@ -143,17 +167,17 @@ Create table Entrada(
   idEntrada int auto_increment not null,
   horarioP_id int not null,
   cine_id int not null,
-  preventa_id int,
-  promocion_id int,
-  funcionEspecial_id int,
+  preventa_id int default null,
+  promocion_id int default null,
+  funcionEspecial_id int default null,
   cantidadEntradas int not null,
   pagoTotal decimal(10,2) not null,
   primary key PK_idEntrada(idEntrada),
-  foreign key (horarioP_id) references HorarioP(idHorarioP),
-  foreign key (cine_id) references Cine(idCine),
-  foreign key (preventa_id) references Preventa(idPreventa),
-  foreign key (promocion_id) references Promocion(idPromocion),
-  foreign key (funcionEspecial_id) references FuncionEspecial(idFuncionEspecial)
+  foreign key (horarioP_id) references HorarioP(idHorarioP) on delete cascade,
+  foreign key (cine_id) references Cine(idCine) on delete cascade,
+  foreign key (preventa_id) references Preventa(idPreventa) on delete cascade,
+  foreign key (promocion_id) references Promocion(idPromocion) on delete cascade,
+  foreign key (funcionEspecial_id) references FuncionEspecial(idFuncionEspecial) on delete cascade
 );
 insert Entrada(horarioP_id, cine_id, preventa_id, promocion_id, funcionEspecial_id, cantidadEntradas, pagoTotal) 
 	values(1, 1, 1,null,null,2,30);

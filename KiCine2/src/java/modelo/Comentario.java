@@ -6,7 +6,6 @@ public class Comentario {
     private int usuario_id;
     private int pelicula_id;
     private String texto;
-    private int puntuacion;
 
     public Comentario() {
     }
@@ -16,7 +15,6 @@ public class Comentario {
         this.usuario_id = usuario_id;
         this.pelicula_id = pelicula_id;
         this.texto = texto;
-        this.puntuacion = puntuacion;
     }
 
     public int getIdComentario() {
@@ -51,19 +49,8 @@ public class Comentario {
         this.texto = texto;
     }
 
-    public int getPuntuacion() {
-        return puntuacion;
-    }
-
-    public void setPuntuacion(int puntuacion) {
-        this.puntuacion = puntuacion;
-    }
-
     @Override
     public String toString() {
-        return "Comentario{" + "idComentario=" + idComentario + ", usuario_id=" + usuario_id + ", pelicula_id=" + pelicula_id + ", texto=" + texto + ", puntuacion=" + puntuacion + '}';
+        return "Comentario{" + "idComentario=" + idComentario + ", usuario_id=" + usuario_id + ", pelicula_id=" + pelicula_id + ", texto=" + texto + '}';
     }
-    
-    
-    
 }
