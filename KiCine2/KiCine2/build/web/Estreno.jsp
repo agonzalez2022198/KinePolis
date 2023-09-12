@@ -13,28 +13,25 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <title>Estrenos</title>
     </head>
-    <body>
+    <body style="background-image: url('img/fondoAdm.png'); background-size: cover; background-repeat: no-repeat;">
+
         <br>
         <div class="d-flex">
             <div class="col-sm-5">
-                <div class="card">
-                    <form action="Controlador?menu=Estreno" method="POST">
+                <div class="card"  style="background-color: #F8F8F8; border: none; border-radius: 3%">
+                    <form action="Controlador?menu=Estreno" method="POST"  onsubmit="return validarCampos()">
 
-                        <div clas="card-body">
-                           
+                        <div class="card-body">
+
                             <div class="form-group">
                                 <br>
                                 <label><Strong>&nbsp;&nbsp;&nbsp;&nbsp;Datos del Estreno:</strong></label>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="txtId_pelicula" value="${list.getPelicula_id()}" class="form-control" placeholder="id Pelicula">
-                                    
+                                    <input style="border: none; background: transparent; border-bottom: 1px solid gray;" type="text" name="txtId_pelicula" value="${list.getPelicula_id()}" class="form-control" placeholder="id Pelicula">
                                 </div>
-                                
                             </div>
-                            <!-- FORMULARIO PRODUCTO -->
-
 
 
                             <div class="form-group">
@@ -43,59 +40,56 @@
                             <div class="form-group d-flex">
 
                                 <div class="col-sm-6">
-                                    <input type="text" name="txtDescripcionEstreno" value="${list.getDescripcionEstreno()}" class="form-control" placeholder="Descripción">
+                                    <input style="border: none; background: transparent; border-bottom: 1px solid gray;" type="text" name="txtDescripcionEstreno" value="${list.getDescripcionEstreno()}" class="form-control" placeholder="Descripción">
                                 </div>
                             </div>
                             <div class="form-group d-flex">
 
                                 <div class="col-sm-6">
-                                    <input type="date" id="start" name="txtFechaEstreno " value="${list.getFecha_estreno()}" class="form-control" placeholder="Stock">
+                                    <input style="border: none; background: transparent; border-bottom: 1px solid gray;" type="date" id="start" name="txtFechaEstreno " value="${list.getFecha_estreno()}" class="form-control" placeholder="Stock">
                                 </div>
                             </div>
                             <!-- AGREGAR REGISTRO-->
                             <div class="form-group">
                                 <div>
-                                    <button type="submit" name="accion" value="Agregar" class="btn btn-outline-info">Agregar Estreno</button>
-                                    <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
+
+                                    <button style="margin: 5px;" type="submit" name="accion" value="Agregar" class="btn btn-info">Agregar Estreno</button>
+                                    <button style="margin: 5px;" type="submit" name="accion" value="Actualizar" class="btn btn-dark">Actualizar</button>
+
                                 </div>
                             </div>
-                            
-
-                            <!-- AGREGAR REGISTRO-->
-
                         </div>
                     </form>
                 </div>
             </div>
             <div class="col-sm-7">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card" style="background-color: #F8F8F8; border: none; border-radius: 3%">
+                    <div class="card-body" >
 
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>idEstreno</th>
-                                    <th>pelicula_id</th>
-                                    <th>descripcionEstreno</th>
-                                    <th>fechaEstreno</th>
-
+                                    <th>CODIGO</th>
+                                    <th>CODIGO PELICULA</th>
+                                    <th>ESTRENO</th>
+                                    <th>FECHA</th>
                                     <th>ACCIONES</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="list" items="${estreno}">
-                                <tr>
-                                    <td>${list.getIdEstreno()}</td>
-                                    <td>${list.getPelicula_id()}</td>
-                                    <td>${list.getDescripcionEstreno()}</td>
-                                    <td>${list.getFecha_estreno()}</td>
+                                <c:forEach var="list" items="${estreno}">
+                                    <tr>
+                                        <td>${list.getIdEstreno()}</td>
+                                        <td>${list.getPelicula_id()}</td>
+                                        <td>${list.getDescripcionEstreno()}</td>
+                                        <td>${list.getFecha_estreno()}</td>
 
-                                    <td class="d-flex">
-                                        <a class="btn btn-warning" href="Controlador?menu=Estreno&accion=Editar&codigoEstreno=${list.getIdEstreno()}">Editar</a>
-                                        <a class="btn btn-danger" href="Controlador?menu=Estreno&accion=Eliminar&codigoEstreno=${list.getIdEstreno()}" onclick="return confirm('¿Esta seguro que quiere eliminar el dato?')" >Eliminar </a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                                        <td class="d-flex">
+                                            <a class="btn btn-warning" href="Controlador?menu=Estreno&accion=Editar&codigoEstreno=${list.getIdEstreno()}" style="margin: 5px;">Editar</a>
+                                            <a class="btn btn-danger" href="Controlador?menu=Estreno&accion=Eliminar&codigoEstreno=${list.getIdEstreno()}"style="margin: 5px;" onclick="return confirm('¿Esta seguro que quiere eliminar el dato?')" >Eliminar </a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
 
 
                             </tbody>

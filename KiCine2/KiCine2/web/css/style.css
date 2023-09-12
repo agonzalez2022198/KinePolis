@@ -166,7 +166,9 @@
 .b-anterior {
     padding: 10px;
     border: none;
-    background: rgba(51, 119, 255, 0.363);
+    border-radius: 2px;
+    background: rgba(36, 36, 36, 0.363);
+    left: 7px;
     font-size: 30px;
     color: white;
     position: absolute;
@@ -177,7 +179,8 @@
 .b-siguiente {
     padding: 10px;
     border: none;
-    background: rgba(51, 119, 255, 0.363);
+    border-radius: 2px;
+    background: rgba(36, 36, 36, 0.363);
     font-size: 30px;
     color: white;
     position: absolute;

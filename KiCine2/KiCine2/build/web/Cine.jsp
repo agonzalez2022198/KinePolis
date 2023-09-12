@@ -18,7 +18,7 @@
             <div class="col-sm-5">
                 <div class="card" style="background-color: #F8F8F8; border: none; border-radius: 3%">
                     <form action="Controlador?menu=Cine" method="POST" onsubmit="return validarCampos()">
-                             <div class="card-body">
+                        <div class="card-body">
                             <div class="form-group">
                                 <label><Strong>&nbsp;&nbsp;&nbsp;&nbsp;Agregar Cine:</strong></label>
                             </div>
@@ -43,14 +43,10 @@
                             <!-- AGREGAR REGISTRO-->
                             <div class="form-group">
                                 <div>
-                                    <button type="submit" name="accion" value="agregar" class="btn btn-info" >Agregar Cine</button>
-                                    <button type="submit" name="accion" value="actualizar" class="btn btn-dark"">Actualizar</button>
+                                    <button style="margin: 5px;" type="submit" name="accion" value="agregar" class="btn btn-info" >Agregar Cine</button>
+                                    <button style="margin: 5px;" type="submit" name="accion" value="actualizar" class="btn btn-dark">Actualizar</button>
                                 </div>
                             </div>
-                            
-
-                            <!-- AGREGAR REGISTRO-->
-
                         </div>
                     </form>
                 </div>
@@ -69,20 +65,28 @@
                                     <th>   ACCIONES</th>
                                 </tr>
                             </thead>
+                            <h1 class="instrucciones">Seleccione un Cine.</h1>
+<!--                            <select class="formSelect">
+                                
+                                <option selected>AQUI</option>
+                               <c:forEach var="list" items="${cine}">
+                                <option value="${list.getIdCine()}">${list.get()}</option>
+                                 </c:forEach>
+                            </select>-->
                             <tbody>
-                            <c:forEach var="list" items="${cine}">
-                                <tr>
-                                    <td>${list.getIdCine()}</td>
-                                    <td>${list.getNombre()}</td>
-                                    <td>${list.getUbicacion()}</td>
-                                    <td>${list.getTelefono()}</td>
+                                <c:forEach var="list" items="${cine}">
+                                    <tr>
+                                        <td>${list.getIdCine()}</td>
+                                        <td>${list.getNombre()}</td>
+                                        <td>${list.getUbicacion()}</td>
+                                        <td>${list.getTelefono()}</td>
 
-                                    <td class="d-flex">
-                                        <a class="btn btn-warning" href="Controlador?menu=Cine&accion=editar&codigoCine=${list.getIdCine()}" style="margin: 5px;" >Editar</a>
-                                        <a class="btn btn-danger" href="Controlador?menu=Cine&accion=eliminar&codigoCine=${list.getIdCine()}" style="margin: 5px;" onclick="return confirm('¿Esta seguro que quiere eliminar el dato?')" >Eliminar </a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                                        <td class="d-flex">
+                                            <a class="btn btn-warning" href="Controlador?menu=Cine&accion=editar&codigoCine=${list.getIdCine()}" style="margin: 5px;" >Editar</a>
+                                            <a class="btn btn-danger" href="Controlador?menu=Cine&accion=eliminar&codigoCine=${list.getIdCine()}" style="margin: 5px;" onclick="return confirm('¿Esta seguro que quiere eliminar el dato?')" >Eliminar </a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
 
 
                             </tbody>
@@ -94,7 +98,7 @@
                 </div>
             </div>
         </div>
-                                 <script>
+        <script>
 
             function validarCampos() {
                 // Obtén los valores de los campos de entrada

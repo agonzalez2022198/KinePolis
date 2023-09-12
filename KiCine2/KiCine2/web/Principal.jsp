@@ -75,8 +75,8 @@
 
             </div>
             <div class="botonesSigAnt">
-                <button class="b-anterior" onclick="beforeImage()">-</button>
-                <button class="b-siguiente" onclick="nextImage()">+</button>
+                <button class="b-anterior" onclick="beforeImage()"><</button>
+                <button class="b-siguiente" onclick="nextImage()">></button>
             </div>
             <script>
                 var slider_content = document.getElementById('banners');

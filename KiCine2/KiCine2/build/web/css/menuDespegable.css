@@ -6,7 +6,8 @@
     font-family: 'Montserrat Alternates', sans-serif;
 }
 body{
-    background: url('../img/fondoC.png');
+    
+    background-image:  url('../img/fondoB.png');
     background-size: cover;
     background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
     background-position: center center;
