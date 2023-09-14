@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <div>
                                     <input type="submit" href="Controlador?menu=Promocion&accion=Agregar" name="accion" value="Agregar" class="btn btn-success">
-                                    <input type="submit" name="accion" value="Actualizar" class="btn btn-warning" href="" >
+                                    <input type="submit" name="accion" value="Actualizar" class="btn btn-warning" href="Controlador?menu=Promocion&accion=Actualizar" >
                                 </div>
                             </div>
                         </div>
@@ -81,8 +81,8 @@
                                             <td>${list.getPrecio()}</td>
                                             <td>${list.getPelicula_id()}</td>
                                         <td class="d-flex">
-                                            <a class="btn btn-warning" href="Controlador?menu=Promocion&accion=Editar&Codigo=${list.getIdPromocion()}">Editar</a>
-                                            <a class="btn btn-danger" href="Controlador?menu=Promocion&accion=Eliminar&Codigo=${list.getIdPromocion()}" onclick="return confirm('¿Esta seguro que quiere eliminar el dato?')" >Eliminar </a>
+                                            <a class="btn btn-warning" href="Controlador?menu=Promocion&accion=Editar&codigoPromocion=${list.getIdPromocion()}">Editar</a>
+                                            <a class="btn btn-danger" href="Controlador?menu=Promocion&accion=Eliminar&codigoPromocion=${list.getIdPromocion()}" onclick="return confirm('¿Esta seguro que quiere eliminar el dato?')" >Eliminar </a>
                                         </td>
                                     </tr>
                                 </c:forEach>

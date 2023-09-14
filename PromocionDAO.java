@@ -16,25 +16,57 @@ public class PromocionDAO {
     int resp;
     
     public int agregarPromocion(Promocion pr){
-        String sql = "insert into Promocion (nombre_promocion, descripcion, fechas_validez, codigo_promocion) values (?,?,?,?)";
+        String sql = "insert into Promocion (nombrePromocion, descripcion, fechasValidez, precio, pelicula_id) values (?,?,?,?,?)";
         try{
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
-            ps.setString(1, pr.getNombre_promopcion());
+            ps.setString(1, pr.getNombrePromocion());
             ps.setString(2, pr.getDescripcion());
-            ps.setString(3, pr.getFechas_validez());
-            ps.setString(4, pr.getCodigo_promocion());
+            ps.setString(3, pr.getFechasValidez());
+            ps.setDouble(4, pr.getPrecio());
+            ps.setInt(5, pr.getPelicula_id());
             ps.executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
-            System.out.println("No se ha establecido la conexion");
+            System.out.println("No se establecio la conexion");
         }
         return resp;
     }
     
-    public List listarPromocion(){
+    public int actualizarPromocion(Promocion pr){
+        String sql = "update promocion set nombrePromocion = ?, descripcion = ?, fechasValidez = ?, precio = ?, pelicula_id = ? where idPromocion = ?";
+        try{
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, pr.getNombrePromocion());
+            ps.setString(2, pr.getDescripcion());
+            ps.setString(3, pr.getFechasValidez());
+            ps.setDouble(4, pr.getPrecio());
+            ps.setInt(5, pr.getPelicula_id());
+            ps.setInt(6, pr.getIdPromocion());
+            ps.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println("No se establecio la conexion");
+        }
+        return resp;
+    }
+    
+    public void eliminarPromocion(int id){
+        String sql = "delete from Promocion where idPromocion ="+id;
+        try{
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println("No se establecio la conexion");
+        }
+    }
+    
+    public List listaPromocion(){
         String sql = "Select * from Promocion";
-        List <Promocion> listaPromocion = new ArrayList<>();
+        List<Promocion> listaPromocion = new ArrayList<>();
         try{
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -42,34 +74,39 @@ public class PromocionDAO {
             while(rs.next()){
                 Promocion pr = new Promocion();
                 pr.setIdPromocion(rs.getInt(1));
-                pr.setNombre_promopcion(rs.getString(2));
+                pr.setNombrePromocion(rs.getString(2));
                 pr.setDescripcion(rs.getString(3));
-                pr.setFechas_validez(rs.getString(4));
-                pr.setCodigo_promocion(rs.getString(5));
+                pr.setFechasValidez(rs.getString(4));
+                pr.setPrecio(rs.getDouble(5));
+                pr.setPelicula_id(rs.getInt(6));
+                listaPromocion.add(pr);
             }
         }catch(Exception e){
             e.printStackTrace();
-            System.out.println("No se ha establecido la conexion");
+            System.out.println("No se establecio la conexion");
         }
         return listaPromocion;
     }
     
-    public int actualizarPromocion(Promocion pr){
-        String sql = "update Promocion set nombre_promocion = ?, descripcion = ?, fechas_validez = ?, codigo_promocion = ? where idPromocion = ?";
+    public Promocion listarCodigoPromocion(int id){
+        Promocion pr = new Promocion();
+        String sql = "select * from Promocion where idPromocion = " + id;
         try{
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
-            ps.setString(1, pr.getNombre_promopcion());
-            ps.setString(2, pr.getDescripcion());
-            ps.setString(3, pr.getFechas_validez());
-            ps.setString(4, pr.getCodigo_promocion());
-            ps.setInt(5, pr.getIdPromocion());
-            ps.executeUpdate();
+            rs = ps.executeQuery();
+            while(rs.next()){
+                pr.setIdPromocion(rs.getInt(1));
+                pr.setNombrePromocion(rs.getString(2));
+                pr.setDescripcion(rs.getString(3));
+                pr.setFechasValidez(rs.getString(4));
+                pr.setPrecio(rs.getDouble(5));
+                pr.setPelicula_id(rs.getInt(6));
+            }
         }catch(Exception e){
             e.printStackTrace();
-            System.out.println("No se ha establecido la conexion");
+            System.out.println("No se ha establecio la conexion");
         }
-        return resp;
+        return pr;
     }
-    
 }

@@ -25,6 +25,7 @@ public class PromocionDAO {
             ps.setString(3, pr.getFechasValidez());
             ps.setDouble(4, pr.getPrecio());
             ps.setInt(5, pr.getPelicula_id());
+            ps.executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
             System.out.println("No se establecio la conexion");
@@ -43,6 +44,7 @@ public class PromocionDAO {
             ps.setDouble(4, pr.getPrecio());
             ps.setInt(5, pr.getPelicula_id());
             ps.setInt(6, pr.getIdPromocion());
+            ps.executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
             System.out.println("No se establecio la conexion");
