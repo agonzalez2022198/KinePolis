@@ -1,23 +1,30 @@
 package modelo;
 
+import java.io.InputStream;
+
 
 public class FuncionEspecial {
     private int idFuncionEspecial;
-    private String tipo_funcion;
+    private String tipoFuncion;
     private String descripcion;
     private int pelicula_id;
-    private int horario_id;
+    private Double precio;
+    
+    private String titulo;
+    private InputStream foto;
 
     public FuncionEspecial() {
         
     }
 
-    public FuncionEspecial(int idFuncionEspecial, String tipo_funcion, String descripcion, int pelicula_id, int horario_id) {
+    public FuncionEspecial(int idFuncionEspecial, String tipoFuncion, String descripcion, int pelicula_id, Double precio, String titulo, InputStream foto) {
         this.idFuncionEspecial = idFuncionEspecial;
-        this.tipo_funcion = tipo_funcion;
+        this.tipoFuncion = tipoFuncion;
         this.descripcion = descripcion;
         this.pelicula_id = pelicula_id;
-        this.horario_id = horario_id;
+        this.precio = precio;
+        this.titulo = titulo;
+        this.foto = foto;
     }
 
     public int getIdFuncionEspecial() {
@@ -28,12 +35,12 @@ public class FuncionEspecial {
         this.idFuncionEspecial = idFuncionEspecial;
     }
 
-    public String getTipo_funcion() {
-        return tipo_funcion;
+    public String getTipoFuncion() {
+        return tipoFuncion;
     }
 
-    public void setTipo_funcion(String tipo_funcion) {
-        this.tipo_funcion = tipo_funcion;
+    public void setTipoFuncion(String tipoFuncion) {
+        this.tipoFuncion = tipoFuncion;
     }
 
     public String getDescripcion() {
@@ -52,12 +59,27 @@ public class FuncionEspecial {
         this.pelicula_id = pelicula_id;
     }
 
-    public int getHorario_id() {
-        return horario_id;
+    public Double getPrecio() {
+        return precio;
     }
 
-    public void setHorario_id(int horario_id) {
-        this.horario_id = horario_id;
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
-    
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public InputStream getFoto() {
+        return foto;
+    }
+
+    public void setFoto(InputStream foto) {
+        this.foto = foto;
+    }  
 }

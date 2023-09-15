@@ -1,30 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
-/**
- *
- * @author Windows 10
- */
+
 public class SalaCine {
+    
     private int idSalaCine;
-    private int numero_sala;
+    private int numeroSala;
     private int capacidad;
-    private String tipo_sala;
-    private String ubicacion;
+    private String tipoSala;
+    private int cine_id;
 
     public SalaCine() {
     }
 
-    public SalaCine(int idSalaCine, int numero_sala, int capacidad, String tipo_sala, String ubicacion) {
+    public SalaCine(int idSalaCine, int numeroSala, int capacidad, String tipoSala, int cine_id) {
         this.idSalaCine = idSalaCine;
-        this.numero_sala = numero_sala;
+        this.numeroSala = numeroSala;
         this.capacidad = capacidad;
-        this.tipo_sala = tipo_sala;
-        this.ubicacion = ubicacion;
+        this.tipoSala = tipoSala;
+        this.cine_id = cine_id;
     }
 
     public int getIdSalaCine() {
@@ -35,12 +28,12 @@ public class SalaCine {
         this.idSalaCine = idSalaCine;
     }
 
-    public int getNumero_sala() {
-        return numero_sala;
+    public int getNumeroSala() {
+        return numeroSala;
     }
 
-    public void setNumero_sala(int numero_sala) {
-        this.numero_sala = numero_sala;
+    public void setNumeroSala(int numeroSala) {
+        this.numeroSala = numeroSala;
     }
 
     public int getCapacidad() {
@@ -51,22 +44,19 @@ public class SalaCine {
         this.capacidad = capacidad;
     }
 
-    public String getTipo_sala() {
-        return tipo_sala;
+    public String getTipoSala() {
+        return tipoSala;
     }
 
-    public void setTipo_sala(String tipo_sala) {
-        this.tipo_sala = tipo_sala;
+    public void setTipoSala(String tipoSala) {
+        this.tipoSala = tipoSala;
     }
 
-    public String getUbicacion() {
-        return ubicacion;
+    public int getCine_id() {
+        return cine_id;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-    
-    
-    
+    public void setCine_id(int cine_id) {
+        this.cine_id = cine_id;
+    } 
 }

@@ -13,10 +13,10 @@
         <link rel="stylesheet" href="css/menuDespegable.css">
         <title>Menu Principal</title>
     </head>
-    <body style="background-image: url('img/black-friday-2901748.png'); background-size: cover; background-repeat: no-repeat;">
+    <body >
         
         
-        <nav class="navbar navbar-expand-lg nvbar-light bg-dark">
+        <nav class="navbar navbar-expand-lg nvbar-light " style="background-color: #242424">>
         <div class="container-fluid position-relative nav-bar p-0">
             <!--<header class="header">-->
                 <div class="container">
@@ -24,13 +24,11 @@
                         <label for="btn-menu">☰</label>
                     </div>
                     <div class="logo">
-                        <h1>Logotipo</h1>
+                        <img style=" margin: 10px; height: 70px;" src="img/logoAdmin.png">
                     </div>
                     <nav class="menu">
-                        <a href="#">Inicio</a>
-                        <a href="#">Nosotros</a>
-                        <a href="#">Blog</a>
-                        <a href="#">Contacto</a>
+                        <a href="MenuMaster.jsp">Inicio</a>
+                        <a href="Controlador?menu=InicioSesion">Cerrar Sesión</a>
                     </nav>
                 </div>
             <!--</header>-->
@@ -40,13 +38,18 @@
             <div class="container-menu">
                 <div class="cont-menu">
                     <nav>
+                        <a href="Controlador?menu=Programadores" target="myFrame">Programadores</a>
                         <a href="Controlador?menu=Pelicula" target="myFrame">Pelicula</a>
                         <a href="Controlador?menu=Estreno&accion=listar" target="myFrame">Estreno </a>
-                        <a href="#">Servicios</a>
-                        <a href="#">Suscribirse</a>
-                        <a href="#">Facebook</a>
-                        <a href="#">Youtube</a>
-                        <a href="#">Instagram</a>
+                        <a href="Controlador?menu=PreventaAdmin&accion=listar" target="myFrame">PreVenta</a>
+                        <a href="Controlador?menu=Cine&accion=listar" target="myFrame">Cine</a>
+                        <a href="Controlador?menu=Entrada&accion=listar" target="myFrame">Entrada</a>
+                        <a href="Controlador?menu=comentarioP&accion=listarM" target="myFrame">Comentario</a>
+                        <a href="Controlador?menu=Factura&accion=listar" target="myFrame">Factura</a>
+                        <a href="Controlador?menu=Promocion&accion=listar" target="myFrame">Promoción</a>
+                        <a href="Controlador?menu=HorariosProyeccion&accion=listar" target="myFrame">Horarios Proyección</a>
+                        <a href="Controlador?menu=SalaCine&accion=listar" target="myFrame">Sala Cine</a>
+                        <a href="Controlador?menu=FuncionEspecial&accion=listar" target="myFrame">Función Especial</a>
                     </nav>
                     <label for="btn-menu">✖️</label>
                 </div>

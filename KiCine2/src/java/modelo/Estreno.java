@@ -1,25 +1,29 @@
-
 package modelo;
 
+import java.io.InputStream;
 import java.util.Date;
 
 
-
-
 public class Estreno {
-    int idEstreno;
+   int idEstreno;
     int pelicula_id;
     String descripcionEstreno;
-    Date fecha_estreno;
-
+    Date fechaEstreno;
+    
+    private String titulo;
+    private InputStream foto;
+    
+    
     public Estreno() {
     }
 
-    public Estreno(int idEstreno, int pelicula_id, String descripcionEstreno, Date fecha_estreno) {
+    public Estreno(int idEstreno, int pelicula_id, String descripcionEstreno, Date fechaEstreno, String titulo, InputStream foto) {
         this.idEstreno = idEstreno;
         this.pelicula_id = pelicula_id;
         this.descripcionEstreno = descripcionEstreno;
-        this.fecha_estreno = fecha_estreno;
+        this.fechaEstreno = fechaEstreno;
+        this.titulo = titulo;
+        this.foto = foto;
     }
 
     public int getIdEstreno() {
@@ -46,15 +50,28 @@ public class Estreno {
         this.descripcionEstreno = descripcionEstreno;
     }
 
-    public Date getFecha_estreno() {
-        return fecha_estreno;
+    public Date getFechaEstreno() {
+        return fechaEstreno;
     }
 
-    public void setFecha_estreno(Date fecha_estreno) {
-        this.fecha_estreno = fecha_estreno;
+    public void setFechaEstreno(Date fecha_estreno) {
+        this.fechaEstreno = fecha_estreno;
     }
 
-    
-    
-    
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public InputStream getFoto() {
+        return foto;
+    }
+
+    public void setFoto(InputStream foto) {
+        this.foto = foto;
+    }
+
 }

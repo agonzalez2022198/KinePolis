@@ -14,15 +14,17 @@ import java.util.Date;
 public class Factura {
     private int idFactura;
     private Date fecha_emision;
+    private int entradaId;
     private double total_pago;
     private int usuario_id;
 
     public Factura() {
     }
 
-    public Factura(int idFactura, Date fecha_emision, double total_pago, int usuario_id) {
+    public Factura(int idFactura, Date fecha_emision, int entradaId, double total_pago, int usuario_id) {
         this.idFactura = idFactura;
         this.fecha_emision = fecha_emision;
+        this.entradaId = entradaId;
         this.total_pago = total_pago;
         this.usuario_id = usuario_id;
     }
@@ -43,6 +45,14 @@ public class Factura {
         this.fecha_emision = fecha_emision;
     }
 
+    public int getEntradaId() {
+        return entradaId;
+    }
+
+    public void setEntradaId(int entradaId) {
+        this.entradaId = entradaId;
+    }
+
     public double getTotal_pago() {
         return total_pago;
     }
@@ -58,6 +68,7 @@ public class Factura {
     public void setUsuario_id(int usuario_id) {
         this.usuario_id = usuario_id;
     }
+
     
     
     

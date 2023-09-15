@@ -44,12 +44,8 @@
                         <input type="submit" name="accion" value="Ingresar" class="ntt" >
                     </form>
                     <div class="pie-form">
-                        <a href="#">¿Perdiste tu contraseña?</a>
                         <a href="Controlador?menu=usuario&accion=cuenta">¿No tienes Cuenta? Registrate</a>
                     </div>
-                </div>
-                <div class="inferior">
-                    <a href="#">Volver</a>
                 </div>
             </div>
         </div>

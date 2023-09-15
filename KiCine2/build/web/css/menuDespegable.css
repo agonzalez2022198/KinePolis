@@ -6,9 +6,11 @@
     font-family: 'Montserrat Alternates', sans-serif;
 }
 body{
-    background: url(https://www.xtrafondos.com/wallpapers/montanas-con-nieve-en-el-bosque-3934.jpg);
-    background-size: 100vw 100vh;
-    background-repeat: no-repeat;
+    
+    background-image:  url('../img/fondoAdministracion.png');
+    background-size: cover;
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    background-position: center center;
 }
 .capa{
     position: fixed;

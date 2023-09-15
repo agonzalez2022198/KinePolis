@@ -1,0 +1,65 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+.pelicula-item {
+    height: 100px;
+    margin-right: 20px; /* Ajusta el margen derecho según tu preferencia */
+    margin-bottom: 20px; /* Ajusta el margen inferior según tu preferencia */
+    display: inline-block; /* Para que los elementos se muestren en línea */
+}
+
+.pelicula-info {
+    margin: 10px; /* Ajusta el margen según tu preferencia */
+    display: inline-block; /* Para que los elementos se muestren en línea uno al lado del otro */
+}
+/*Nueevo css*/
+
+.menu {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+#dropdown-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#dropdown-content {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+#dropdown-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#dropdown-content li {
+    padding: 10px;
+}
+
+#dropdown-content a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+#dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.hidden {
+    display: none;
+}

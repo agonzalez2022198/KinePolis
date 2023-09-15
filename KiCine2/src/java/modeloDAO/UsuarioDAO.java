@@ -13,6 +13,8 @@ import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Usuario;
 
@@ -57,7 +59,7 @@ public class UsuarioDAO {
     public int agregar(Usuario user){
         Usuario usuario = new Usuario();
         
-        String sql = "insert into Usuario(nombre, apellido, correo_electronico,contrasena) values(?,?,?,?)";
+        String sql = "insert into Usuario(nombre, apellido, correo_electronico, contrasena, foto) values(?,?,?,?,?)";
         
         try{
             con = cn.Conexion();
@@ -66,6 +68,7 @@ public class UsuarioDAO {
             ps.setString(2, user.getApellido());
             ps.setString(3, user.getCorreo_electronico());
             ps.setString(4, user.getContrasena());
+            ps.setBlob(5, user.getFoto());
             ps.executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
@@ -149,6 +152,28 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
         return resp;
+    }
+    
+    public List listar(){
+        String sql = "Select * from Usuario";
+        List<Usuario> listaUsuario = new ArrayList<>();
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Usuario usuario = new Usuario();
+                usuario.setIdUsuario(rs.getInt(1));
+                usuario.setNombre(rs.getString(2));
+                usuario.setApellido(rs.getString(3));
+                usuario.setCorreo_electronico(rs.getString(4));
+                usuario.setContrasena(rs.getString(5));
+                listaUsuario.add(usuario);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listaUsuario;
     }
     
 }

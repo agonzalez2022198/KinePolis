@@ -1,22 +1,33 @@
 package modelo;
 
+import java.io.InputStream;
+
 
 public class Promocion {
  private int idPromocion;
  private String nombre_promopcion;
  private String descripcion;
- private String fechas_validez;
- private String codigo_promocion;
+ private String fechasValidez;
+ private Double precio;
+ private int pelicula_id;
+ 
+ private String titulo;
+ private int duracion;
+ private InputStream foto;
 
     public Promocion() {
     }
 
-    public Promocion(int idPromocion, String nombre_promopcion, String descripcion, String fechas_validez, String codigo_promocion) {
+    public Promocion(int idPromocion, String nombre_promopcion, String descripcion, String fechasValidez, Double precio, int pelicula_id, String titulo, int duracion, InputStream foto) {
         this.idPromocion = idPromocion;
         this.nombre_promopcion = nombre_promopcion;
         this.descripcion = descripcion;
-        this.fechas_validez = fechas_validez;
-        this.codigo_promocion = codigo_promocion;
+        this.fechasValidez = fechasValidez;
+        this.precio = precio;
+        this.pelicula_id = pelicula_id;
+        this.titulo = titulo;
+        this.duracion = duracion;
+        this.foto = foto;
     }
 
     public int getIdPromocion() {
@@ -43,26 +54,57 @@ public class Promocion {
         this.descripcion = descripcion;
     }
 
-    public String getFechas_validez() {
-        return fechas_validez;
+    public String getFechasValidez() {
+        return fechasValidez;
     }
 
-    public void setFechas_validez(String fechas_validez) {
-        this.fechas_validez = fechas_validez;
+    public void setFechasValidez(String fechasValidez) {
+        this.fechasValidez = fechasValidez;
     }
 
-    public String getCodigo_promocion() {
-        return codigo_promocion;
+    public Double getPrecio() {
+        return precio;
     }
 
-    public void setCodigo_promocion(String codigo_promocion) {
-        this.codigo_promocion = codigo_promocion;
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
 
-    @Override
-    public String toString() {
-        return "Promocion{" + "idPromocion=" + idPromocion + ", nombre_promopcion=" + nombre_promopcion + ", descripcion=" + descripcion + ", fechas_validez=" + fechas_validez + ", codigo_promocion=" + codigo_promocion + '}';
+    public int getPelicula_id() {
+        return pelicula_id;
     }
+
+    public void setPelicula_id(int pelicula_id) {
+        this.pelicula_id = pelicula_id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public InputStream getFoto() {
+        return foto;
+    }
+
+    public void setFoto(InputStream foto) {
+        this.foto = foto;
+    }
+
+    
+
+    
  
  
 }

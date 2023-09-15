@@ -136,7 +136,7 @@
                 padding: 14px 25px;
                 border: none;
                 font-weight: 500;
-                background-color: #6a64f1;
+                background-color: black;
                 color: white;
                 cursor: pointer;
                 margin-top: 25px;

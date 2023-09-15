@@ -29,7 +29,29 @@ public class EstrenoDAO {
                 es.setIdEstreno(rs.getInt(1));
                 es.setPelicula_id(rs.getInt(2));
                 es.setDescripcionEstreno(rs.getString(3));
-                es.setFecha_estreno(rs.getDate(4));
+                es.setFechaEstreno(rs.getDate(4));
+                listaEstreno.add(es);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listaEstreno;
+    }
+    
+    public List listarInnerJoin() {
+        String sql = "Select e.pelicula_id, e.descripcionEstreno, e.fechaEstreno, p.titulo, p.foto from Estreno as e Inner Join Pelicula as p on e.pelicula_id = p.idPelicula";
+        List<Estreno> listaEstreno = new ArrayList<>();
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Estreno es = new Estreno();
+                es.setPelicula_id(rs.getInt(1));
+                es.setDescripcionEstreno(rs.getString(2));
+                es.setFechaEstreno(rs.getDate(3));
+                es.setTitulo(rs.getString(4));
+                es.setFoto(rs.getBinaryStream(5));
                 listaEstreno.add(es);
             }
         } catch (Exception e) {
@@ -39,13 +61,13 @@ public class EstrenoDAO {
     }
 
     public int agregar(Estreno es) {
-        String sql = "insert into Estreno (idEstreno, pelicula_id, descripcionEstreno, fecha_estreno) values (?, ?, ?, ?);";
+        String sql = "insert into Estreno (pelicula_id, descripcionEstreno, fechaEstreno) values (?, ?, ?);";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             ps.setInt(1, es.getPelicula_id());
             ps.setString(2, es.getDescripcionEstreno());
-            ps.setDate(3, (Date) es.getFecha_estreno());
+            ps.setDate(3, new java.sql.Date(es.getFechaEstreno().getTime()));
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,7 +88,7 @@ public class EstrenoDAO {
                 es.setIdEstreno(rs.getInt(1));
                 es.setPelicula_id(rs.getInt(2));
                 es.setDescripcionEstreno(rs.getString(3));
-                es.setFecha_estreno(rs.getDate(4));
+                es.setFechaEstreno(rs.getDate(4));
             }
 
         } catch (Exception e) {
@@ -76,13 +98,15 @@ public class EstrenoDAO {
     }
 
     public int actualizar(Estreno es) {
-        String sql = "update Estreno set idEstreno = ?, pelicula_id = ?, descripcionEstreno = ?, fecha_estreno = ? where idEstreno = ?";
+        String sql = "update Estreno set pelicula_id = ?, descripcionEstreno = ?, fechaEstreno = ? where idEstreno = ?";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             ps.setInt(1, es.getPelicula_id());
             ps.setString(2, es.getDescripcionEstreno());
-            ps.setDate(3, (Date) es.getFecha_estreno());
+            ps.setDate(3, new java.sql.Date(es.getFechaEstreno().getTime()));
+            ps.setInt(4, es.getIdEstreno());
+            ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -98,7 +122,5 @@ public class EstrenoDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
 }
